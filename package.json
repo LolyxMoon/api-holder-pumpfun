@@ -1,0 +1,48 @@
+{
+  "name": "pumpfun-holders-api",
+  "version": "1.0.0",
+  "description": "API universal para obtener holders de tokens de Pump.fun en Solana",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+        "dev": "nodemon --ignore data/ --ignore downloads/ src/index.js",
+    "setup": "npm install && node src/setup.js",
+    "test": "node src/test.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop pumpfun-holders",
+    "pm2:logs": "pm2 logs pumpfun-holders",
+    "pm2:restart": "pm2 restart pumpfun-holders"
+  },
+  "keywords": [
+    "solana",
+    "pump.fun",
+    "holders",
+    "api",
+    "scraper",
+    "blockchain"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "node-cron": "^3.0.3",
+    "papaparse": "^5.5.3",
+    "puppeteer": "^24.22.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "rotating-file-stream": "^3.1.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "pm2": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

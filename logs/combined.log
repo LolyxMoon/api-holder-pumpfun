@@ -1,0 +1,397 @@
+[2025-09-18T21:40:58.567Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:40:58.568Z] INFO: ✅ Configuración validada
+[2025-09-18T21:40:58.573Z] INFO: 📁 No hay datos previos, iniciando nueva base de datos
+[2025-09-18T21:40:58.576Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:40:58.576Z] INFO: 📊 0 wallets cargadas
+[2025-09-18T21:40:59.016Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:40:59.017Z] INFO: ✅ Configuración validada
+[2025-09-18T21:40:59.022Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:40:59.022Z] INFO: 📊 0 wallets cargadas
+[2025-09-18T21:40:59.475Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:40:59.478Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:40:59.481Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:40:59.479Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:40:59.481Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:40:59.482Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:40:59.483Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:05.587Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:05.587Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:05.588Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:05.588Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:06.030Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:06.031Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:06.036Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:06.037Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:06.246Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:06.248Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:06.251Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:06.249Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:06.250Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:06.252Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:06.252Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:12.079Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:12.080Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:12.081Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:12.081Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:12.523Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:12.525Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:12.530Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:12.530Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:12.753Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:12.756Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:12.758Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:12.756Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:12.758Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:12.759Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:12.760Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:18.519Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:18.519Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:18.520Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:18.520Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:18.963Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:18.965Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:18.970Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:18.970Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:19.178Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:19.181Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:19.183Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:19.181Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:19.183Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:19.184Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:19.185Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:25.172Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:25.173Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:25.173Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:25.174Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:25.614Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:25.616Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:25.621Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:25.621Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:25.846Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:25.849Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:25.853Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:25.850Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:25.852Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:25.854Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:25.855Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:31.562Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:31.563Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:31.563Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:31.564Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:31.988Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:31.990Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:31.994Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:31.995Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:32.219Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:32.222Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:32.225Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:32.223Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:32.224Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:32.226Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:32.226Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:38.145Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:38.145Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:38.146Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:38.146Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:38.573Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:38.575Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:38.580Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:38.580Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:38.809Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:38.811Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:38.814Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:38.812Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:38.813Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:38.815Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:38.815Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:44.654Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:44.655Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:44.655Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:44.656Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:45.088Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:45.090Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:45.095Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:45.095Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:45.306Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:45.309Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:45.311Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:45.309Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:45.311Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:45.313Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:45.313Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:51.072Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:51.072Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:51.073Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:51.073Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:51.518Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:51.520Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:51.525Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:51.526Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:51.757Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:51.760Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:51.762Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:51.760Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:51.762Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:51.763Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:51.764Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:41:57.566Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:41:57.566Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:41:57.567Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:41:57.567Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:41:57.998Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:41:58.000Z] INFO: ✅ Configuración validada
+[2025-09-18T21:41:58.005Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:41:58.005Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:41:58.212Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:41:58.214Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:41:58.216Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:41:58.215Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:41:58.216Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:41:58.217Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:41:58.218Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:42:04.281Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:42:04.281Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:42:04.282Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:42:04.282Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:42:04.829Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:42:04.830Z] INFO: ✅ Configuración validada
+[2025-09-18T21:42:04.835Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:42:04.836Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:42:05.048Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:42:05.051Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:42:05.054Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:42:05.052Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:42:05.053Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:42:05.055Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:42:05.055Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:42:10.871Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:42:10.872Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:42:10.872Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:42:10.872Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:42:11.415Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:42:11.417Z] INFO: ✅ Configuración validada
+[2025-09-18T21:42:11.422Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:42:11.422Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:42:11.654Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:42:11.657Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:42:11.660Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:42:11.658Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:42:11.659Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:42:11.661Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:42:11.661Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:42:17.641Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:42:17.642Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:42:17.642Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:42:17.643Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:42:18.189Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:42:18.191Z] INFO: ✅ Configuración validada
+[2025-09-18T21:42:18.196Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:42:18.197Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:42:18.428Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:42:18.431Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:42:18.434Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:42:18.432Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:42:18.433Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:42:18.435Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:42:18.435Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:42:24.459Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:42:24.459Z] INFO: ✅ Base de datos actualizada: 1 wallets totales
+[2025-09-18T21:42:24.460Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:42:24.461Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:42:25.051Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:42:25.053Z] INFO: ✅ Configuración validada
+[2025-09-18T21:42:25.058Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:42:25.058Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:42:25.292Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:42:25.295Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:42:25.297Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:42:25.295Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:42:25.297Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:42:25.298Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:42:25.299Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:44:03.676Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:44:03.678Z] INFO: ✅ Configuración validada
+[2025-09-18T21:44:03.682Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:44:03.683Z] INFO: 📊 1 wallets cargadas
+[2025-09-18T21:44:03.923Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:44:03.926Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:44:03.928Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:44:03.926Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:44:03.927Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:44:03.929Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:44:03.929Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:44:09.682Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:44:09.682Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:44:09.683Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:44:09.683Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:44:10.182Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:44:10.184Z] INFO: ✅ Configuración validada
+[2025-09-18T21:44:10.189Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:44:10.189Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:44:10.411Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:44:10.414Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:44:10.416Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:44:10.414Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:44:10.416Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:44:10.417Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:44:10.418Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:44:16.261Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:44:16.262Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:44:16.262Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:44:16.263Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:44:16.802Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:44:16.804Z] INFO: ✅ Configuración validada
+[2025-09-18T21:44:16.809Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:44:16.809Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:44:17.014Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:44:17.017Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:44:17.019Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:44:17.017Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:44:17.019Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:44:17.020Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:44:17.020Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:44:22.876Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:44:22.876Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:44:22.877Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:44:22.877Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:44:23.427Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:44:23.428Z] INFO: ✅ Configuración validada
+[2025-09-18T21:44:23.433Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:44:23.433Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:44:23.680Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:44:23.683Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:44:23.685Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:44:23.683Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:44:23.685Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:44:23.686Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:44:23.687Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:44:29.660Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:44:29.660Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:44:29.661Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:44:29.662Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:44:30.199Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:44:30.201Z] INFO: ✅ Configuración validada
+[2025-09-18T21:44:30.206Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:44:30.207Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:44:30.445Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:44:30.448Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:44:30.450Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:44:30.448Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:44:30.450Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:44:30.451Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:44:30.452Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:44:36.507Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:44:36.508Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:44:36.508Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:44:36.508Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:44:37.059Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:44:37.061Z] INFO: ✅ Configuración validada
+[2025-09-18T21:44:37.067Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:44:37.067Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:44:37.298Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:44:37.301Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:44:37.303Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:44:37.301Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:44:37.303Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:44:37.304Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:44:37.305Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:44:43.550Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:44:43.552Z] INFO: ✅ Configuración validada
+[2025-09-18T21:44:43.557Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:44:43.557Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:44:43.792Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:44:43.795Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:44:43.798Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:44:43.796Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:44:43.797Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:44:43.799Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:44:43.799Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:50:11.792Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:50:11.794Z] INFO: ✅ Configuración validada
+[2025-09-18T21:50:11.799Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:50:11.799Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:50:12.018Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:50:12.020Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:50:12.023Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:50:12.021Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:50:12.022Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:50:12.023Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:50:12.024Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:50:17.804Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:50:17.804Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:50:17.805Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:50:17.805Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:50:18.345Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:50:18.347Z] INFO: ✅ Configuración validada
+[2025-09-18T21:50:18.352Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:50:18.352Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:50:18.574Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:50:18.577Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:50:18.579Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:50:18.577Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:50:18.579Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:50:18.580Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:50:18.581Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:50:24.508Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:50:24.509Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:50:24.509Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:50:24.510Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:50:25.063Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:50:25.065Z] INFO: ✅ Configuración validada
+[2025-09-18T21:50:25.070Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:50:25.070Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:50:25.292Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:50:25.295Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:50:25.298Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:50:25.295Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:50:25.298Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:50:25.299Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:50:25.299Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:50:31.464Z] INFO: ✅ Scraping exitoso: 1 holders encontrados
+[2025-09-18T21:50:31.464Z] INFO: ✅ Base de datos actualizada: 2 wallets totales
+[2025-09-18T21:50:31.465Z] INFO: ✅ Scraping inicial completado: 1 holders encontrados
+[2025-09-18T21:50:31.465Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:50:32.025Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:50:32.027Z] INFO: ✅ Configuración validada
+[2025-09-18T21:50:32.032Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:50:32.032Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:50:32.262Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:50:32.265Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:50:32.267Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:50:32.265Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:50:32.267Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:50:32.268Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:50:32.269Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:50:38.536Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:50:38.537Z] INFO: ✅ Configuración validada
+[2025-09-18T21:50:38.542Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:50:38.543Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:50:38.777Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:50:38.780Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:50:38.782Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:50:38.780Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:50:38.782Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:50:38.783Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:50:38.783Z] INFO: 📊 Dashboard disponible en http://localhost:3001
+[2025-09-18T21:50:44.658Z] INFO: 🔍 Intento 2/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:50:49.286Z] INFO: 🔍 Intento 3/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:50:53.976Z] INFO: 🔄 Intentando con APIs alternativas...
+[2025-09-18T21:50:54.556Z] ERROR: ❌ Scraping falló después de 3 intentos 
+[2025-09-18T21:50:54.557Z] ERROR: Error en scraping inicial: Error: No se pudieron obtener holders
+    at HolderScraper.scrapeHolders (C:\Users\Punx\Desktop\pumpfun-holders-api\src\services\HolderScraper.js:103:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PumpFunHoldersAPI.performInitialScrape (C:\Users\Punx\Desktop\pumpfun-holders-api\src\index.js:367:29)
+    at async PumpFunHoldersAPI.initialize (C:\Users\Punx\Desktop\pumpfun-holders-api\src\index.js:52:13)
+[2025-09-18T21:50:54.557Z] INFO: ⚠️ Continuando con datos existentes...
+[2025-09-18T21:50:54.557Z] INFO: ✅ Sistema iniciado correctamente
+[2025-09-18T21:51:51.408Z] INFO: 🚀 Iniciando PumpFun Holders API...
+[2025-09-18T21:51:51.410Z] INFO: ✅ Configuración validada
+[2025-09-18T21:51:51.415Z] INFO: ✅ Base de datos inicializada
+[2025-09-18T21:51:51.415Z] INFO: 📊 2 wallets cargadas
+[2025-09-18T21:51:51.622Z] INFO: ✅ Scraper inicializado correctamente
+[2025-09-18T21:51:51.625Z] INFO: ⏰ Auto-actualización configurada cada 10 minutos
+[2025-09-18T21:51:51.627Z] INFO: 🔍 Intento 1/3 - Scrapeando holders de Solscan...
+[2025-09-18T21:51:51.625Z] INFO: 🎲 Auto-rotación configurada cada 30 segundos
+[2025-09-18T21:51:51.627Z] INFO: 🔍 Realizando scraping inicial...
+[2025-09-18T21:51:51.628Z] INFO: 🌐 Servidor API corriendo en http://localhost:3001
+[2025-09-18T21:51:51.629Z] INFO: 📊 Dashboard disponible en http://localhost:3001

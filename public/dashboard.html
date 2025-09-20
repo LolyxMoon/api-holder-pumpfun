@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PumpFun Holders - Dashboard Avanzado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f0f;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .last-update {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .search-container {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+
+        .stat-card.diamond {
+            background: linear-gradient(135deg, #1a1a1a, #2a1a2a);
+            border: 2px solid #00d4ff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stat-change {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .positive {
+            color: #00ff88;
+        }
+
+        .negative {
+            color: #ff4444;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .panel h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .diamond-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00d4ff, #00ffff);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .holders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .holders-table th {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #3a3a3a;
+            color: #888;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .holders-table td {
+            padding: 12px;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 14px;
+        }
+
+        .holders-table tr:hover {
+            background: #2a2a2a;
+        }
+
+        .address {
+            font-family: 'Courier New', monospace;
+            color: #667eea;
+            cursor: pointer;
+        }
+
+        .address:hover {
+            text-decoration: underline;
+        }
+
+        .balance {
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge.diamond {
+            background: linear-gradient(135deg, #00d4ff, #00ffff);
+            color: #000;
+        }
+
+        .badge.og {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+        }
+
+        .badge.new {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .badge.sold {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            padding: 20px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            color: #fff;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid #3a3a3a;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .update-btn {
+            padding: 8px 16px;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .update-btn:hover {
+            background: #3a3a3a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div>
+                <h1>PumpFun Holders Analytics</h1>
+                <p class="last-update">Última actualización: <span id="lastUpdate">--:--</span></p>
+            </div>
+            <button class="update-btn" onclick="forceUpdate()">🔄 Actualizar Holders</button>
+        </div>
+
+        <!-- Buscador -->
+        <div class="search-container">
+            <h3 style="margin-bottom: 15px;">🔍 Buscar Wallet</h3>
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" 
+                       placeholder="Ingresa una dirección de wallet..." 
+                       onkeypress="if(event.key==='Enter') searchWallet()">
+                <button id="searchBtn">Buscar</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <!-- Estadísticas principales -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Holders</div>
+                <div class="stat-value" id="totalHolders">--</div>
+                <div class="stat-change positive" id="holdersChange">--</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-label">Wallets que Vendieron</div>
+                <div class="stat-value" id="soldWallets">--</div>
+                <div class="stat-change negative" id="soldChange">--</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-label">Holders Originales</div>
+                <div class="stat-value" id="ogHolders">--</div>
+                <div class="stat-change" id="ogPercentage">--</div>
+            </div>
+            
+            <div class="stat-card diamond">
+                <div class="stat-label">💎 Diamond Hands</div>
+                <div class="stat-value" id="diamondHands">--</div>
+                <div class="stat-change" id="diamondPercentage">--</div>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-grid">
+            <!-- Panel izquierdo - Lista de holders -->
+            <div class="panel">
+                <h2>📊 Holders</h2>
+                
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('all')">Todos</button>
+                    <button class="tab" onclick="switchTab('diamond')">💎 Diamond Hands</button>
+                    <button class="tab" onclick="switchTab('og')">OG Holders</button>
+                    <button class="tab" onclick="switchTab('new')">Nuevos</button>
+                </div>
+                
+                <div id="holdersContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Cargando holders...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel derecho - Diamond Hands destacados -->
+            <div class="panel">
+                <h2>
+                    <div class="diamond-icon"></div>
+                    Diamond Hands Hall of Fame
+                </h2>
+                
+                <div id="diamondContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="dashboard.js"></script>
+
+</body>
+</html>

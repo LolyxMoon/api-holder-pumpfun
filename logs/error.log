@@ -1,0 +1,6 @@
+[2025-09-18T21:50:54.556Z] ERROR: ❌ Scraping falló después de 3 intentos 
+[2025-09-18T21:50:54.557Z] ERROR: Error en scraping inicial: Error: No se pudieron obtener holders
+    at HolderScraper.scrapeHolders (C:\Users\Punx\Desktop\pumpfun-holders-api\src\services\HolderScraper.js:103:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PumpFunHoldersAPI.performInitialScrape (C:\Users\Punx\Desktop\pumpfun-holders-api\src\index.js:367:29)
+    at async PumpFunHoldersAPI.initialize (C:\Users\Punx\Desktop\pumpfun-holders-api\src\index.js:52:13)
