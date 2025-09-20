@@ -1,14 +1,9 @@
-// src/services/HolderScraper.js - Versión compatible con Railway
+// src/services/HolderScraper.js - Versión COMPLETA con Puppeteer
 const fs = require('fs').promises;
 const path = require('path');
 const Papa = require('papaparse');
 const Logger = require('../utils/Logger');
-
-// Solo cargar Puppeteer si NO estamos en producción
-let puppeteer;
-if (process.env.NODE_ENV !== 'production') {
-    puppeteer = require('puppeteer');
-}
+const puppeteer = require('puppeteer'); // SIEMPRE cargar Puppeteer
 
 class HolderScraper {
     constructor(database) {
@@ -19,54 +14,42 @@ class HolderScraper {
         this.scrapeCount = 0;
         this.errorCount = 0;
         
-        // Usar la carpeta Downloads del usuario o temp en producción
+        // Usar /tmp en Render
         const userHome = process.env.HOME || process.env.USERPROFILE || '/tmp';
         
         this.config = {
             tokenAddress: process.env.TOKEN_ADDRESS,
-            downloadPath: process.env.NODE_ENV === 'production' 
-                ? '/tmp' 
-                : path.join(userHome, 'Downloads'),
+            downloadPath: '/tmp', // Siempre /tmp en Render
             maxRetries: parseInt(process.env.MAX_RETRIES) || 3,
             timeout: parseInt(process.env.TIMEOUT_MS) || 60000,
-            headless: process.env.HEADLESS_MODE === 'true'
+            headless: true // Siempre headless en servidor
         };
     }
 
     async initialize() {
         try {
-            // En producción, no inicializar Puppeteer
-            if (process.env.NODE_ENV === 'production') {
-                this.logger.info('✅ Scraper en modo producción (sin Puppeteer)');
-                this.logger.info('ℹ️ Use los datos existentes o actualice manualmente desde local');
-                return;
-            }
-            
             await this.launchBrowser();
             this.logger.info('✅ Scraper automático CSV inicializado');
             this.logger.info(`📁 Carpeta de descarga: ${this.config.downloadPath}`);
         } catch (error) {
             this.logger.error('Error inicializando scraper:', error);
-            // En producción no es crítico
-            if (process.env.NODE_ENV !== 'production') {
-                throw error;
-            }
+            throw error;
         }
     }
 
     async launchBrowser() {
-        // Solo ejecutar si tenemos Puppeteer disponible
-        if (!puppeteer || process.env.NODE_ENV === 'production') {
-            this.logger.info('Puppeteer no disponible en producción');
-            return;
-        }
-        
         try {
             this.browser = await puppeteer.launch({
-                headless: this.config.headless,
+                headless: 'new', // Importante: usar 'new' para Render
                 args: [
                     '--no-sandbox',
                     '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-gpu',
+                    '--no-first-run',
+                    '--no-zygote',
+                    '--single-process',
+                    '--disable-extensions',
                     '--disable-blink-features=AutomationControlled'
                 ],
                 defaultViewport: null
@@ -80,20 +63,10 @@ class HolderScraper {
     }
 
     async scrapeHolders() {
-        // En producción, retornar datos existentes
-        if (process.env.NODE_ENV === 'production') {
-            this.logger.info('📊 Modo producción: retornando datos existentes');
-            
-            const existingHolders = this.database.getAllWallets ? this.database.getAllWallets() : [];
-            
-            if (existingHolders.length === 0) {
-                this.logger.warn('⚠️ No hay datos de holders. Actualice desde un entorno local.');
-            }
-            
-            return existingHolders;
-        }
+        // QUITAR todas las verificaciones de producción
+        // El scraper SIEMPRE debe intentar obtener datos nuevos
         
-        // Verificar cooldown de 3 minutos (solo en desarrollo)
+        // Verificar cooldown de 3 minutos
         const now = Date.now();
         const threeMinutes = 3 * 60 * 1000;
         
@@ -137,9 +110,6 @@ class HolderScraper {
     }
 
     async cleanOldCSVs() {
-        // Solo ejecutar en desarrollo
-        if (process.env.NODE_ENV === 'production') return;
-        
         try {
             const files = await fs.readdir(this.config.downloadPath);
             for (const file of files) {
@@ -159,9 +129,9 @@ class HolderScraper {
     }
 
     async downloadAndProcessCSV() {
-        // No ejecutar en producción
-        if (process.env.NODE_ENV === 'production' || !this.browser) {
-            throw new Error('Descarga CSV no disponible en producción');
+        // QUITAR la verificación de producción
+        if (!this.browser) {
+            throw new Error('Browser no inicializado');
         }
         
         const page = await this.browser.newPage();
@@ -184,7 +154,7 @@ class HolderScraper {
             
             // Navegar DIRECTAMENTE a holders
             const url = `https://solscan.io/token/${this.config.tokenAddress}#holders`;
-            this.logger.info(`🔍 Navegando a: ${url}`);
+            this.logger.info(`📍 Navegando a: ${url}`);
             
             await page.goto(url, {
                 waitUntil: 'networkidle2',
@@ -209,6 +179,7 @@ class HolderScraper {
             // Asegurar que estamos en la pestaña de holders
             this.logger.info('🔍 Activando pestaña de holders...');
             await page.evaluate(() => {
+                // Buscar y clickear el tab de holders
                 const tabs = document.querySelectorAll('a, button, div[role="tab"]');
                 for (const tab of tabs) {
                     if (tab.textContent && tab.textContent.toLowerCase().includes('holder')) {
@@ -224,17 +195,20 @@ class HolderScraper {
             this.logger.info('🎯 Buscando botón Export CSV...');
             
             const exportClicked = await page.evaluate(() => {
+                // Buscar el botón de varias formas
                 const buttons = document.querySelectorAll('button, a');
                 
                 for (const btn of buttons) {
                     const text = (btn.textContent || '').toLowerCase();
                     
+                    // Buscar por texto
                     if (text.includes('export') && text.includes('csv')) {
                         console.log('Botón encontrado por texto:', btn.textContent);
                         btn.click();
                         return true;
                     }
                     
+                    // Buscar por icono de descarga
                     if (btn.querySelector('svg') && text.includes('csv')) {
                         console.log('Botón encontrado con icono');
                         btn.click();
@@ -242,6 +216,7 @@ class HolderScraper {
                     }
                 }
                 
+                // Buscar por clase o atributos
                 const exportBtn = document.querySelector('[aria-label*="Export"], [title*="Export"], .export-btn');
                 if (exportBtn) {
                     exportBtn.click();
@@ -250,6 +225,7 @@ class HolderScraper {
                 
                 return false;
             });
+            
             if (!exportClicked) {
                 throw new Error('No se pudo encontrar el botón Export CSV');
             }
@@ -263,11 +239,13 @@ class HolderScraper {
             this.logger.info('🎯 Buscando botón Download en el popup...');
             
             const downloadStarted = await page.evaluate(() => {
+                // Buscar el botón Download en el popup (suele ser rosa/morado)
                 const buttons = document.querySelectorAll('button');
                 
                 for (const btn of buttons) {
                     const text = (btn.textContent || '').toLowerCase();
                     
+                    // Buscar botón que diga "download"
                     if (text.includes('download')) {
                         console.log('Botón Download encontrado:', btn.textContent);
                         btn.click();
@@ -275,20 +253,23 @@ class HolderScraper {
                     }
                 }
                 
+                // Buscar por clases que sugieran que es el botón principal del popup
                 const primaryButtons = document.querySelectorAll('.ant-btn-primary, .btn-primary, [class*="primary"], [class*="download"]');
                 for (const btn of primaryButtons) {
-                    if (btn.tagName === 'BUTTON' && btn.offsetParent !== null) {
+                    if (btn.tagName === 'BUTTON' && btn.offsetParent !== null) { // Verificar que sea visible
                         console.log('Botón primario encontrado');
                         btn.click();
                         return true;
                     }
                 }
                 
+                // Buscar botones con colores típicos de "acción principal"
                 const allButtons = document.querySelectorAll('button');
                 for (const btn of allButtons) {
                     const styles = window.getComputedStyle(btn);
                     const bgColor = styles.backgroundColor;
                     
+                    // Buscar botones rosa/morado/azul (colores típicos de acción principal)
                     if (bgColor.includes('rgb') && btn.offsetParent !== null) {
                         const isColorful = bgColor.includes('255') || bgColor.includes('254') || bgColor.includes('253');
                         if (isColorful) {
@@ -304,6 +285,8 @@ class HolderScraper {
             
             if (!downloadStarted) {
                 this.logger.warn('⚠️ No se encontró el botón Download en el popup, intentando alternativas...');
+                
+                // Intentar presionar Enter como alternativa
                 await page.keyboard.press('Enter');
                 this.logger.info('⏎ Presionado Enter como alternativa');
             } else {
@@ -313,6 +296,7 @@ class HolderScraper {
             // ESPERAR A QUE SE DESCARGUE
             this.logger.info('⏳ Esperando descarga del archivo...');
             
+            // Esperar a que aparezca el archivo
             const csvPath = await this.waitForDownload();
             
             if (!csvPath) {
@@ -331,6 +315,7 @@ class HolderScraper {
         } catch (error) {
             this.logger.error('Error en descarga automática:', error);
             
+            // Tomar screenshot para debug
             if (!this.config.headless) {
                 await page.screenshot({ path: 'error-download.png' });
                 this.logger.info('📸 Screenshot de error: error-download.png');
@@ -344,14 +329,15 @@ class HolderScraper {
     }
 
     async waitForDownload() {
-        const maxWaitTime = 30000;
-        const checkInterval = 1000;
+        const maxWaitTime = 30000; // 30 segundos máximo
+        const checkInterval = 1000; // Verificar cada segundo
         const startTime = Date.now();
         
         while (Date.now() - startTime < maxWaitTime) {
             try {
                 const files = await fs.readdir(this.config.downloadPath);
                 
+                // Buscar archivos CSV recientes
                 for (const file of files) {
                     if (file.endsWith('.csv') && 
                         (file.includes('holder') || file.includes(this.config.tokenAddress.substring(0, 8)))) {
@@ -359,7 +345,9 @@ class HolderScraper {
                         const filePath = path.join(this.config.downloadPath, file);
                         const stats = await fs.stat(filePath);
                         
+                        // Si el archivo fue creado en los últimos 60 segundos
                         if (Date.now() - stats.mtimeMs < 60000) {
+                            // Esperar un poco para asegurar que terminó de descargarse
                             await this.delay(2000);
                             return filePath;
                         }
@@ -388,26 +376,34 @@ class HolderScraper {
                         const holders = [];
                         
                         results.data.forEach((row, index) => {
+                            // El CSV descargado tiene estas columnas típicamente:
+                            // Owner, Quantity, Percentage, Value
+                            
                             let address = '';
                             let balance = 0;
                             let percentage = 0;
                             
+                            // Buscar la dirección (puede estar en diferentes columnas)
                             for (const key in row) {
                                 const value = row[key];
                                 
+                                // Si es una dirección de Solana (44 caracteres)
                                 if (typeof value === 'string' && value.length === 44) {
                                     address = value;
                                     break;
                                 }
                             }
                             
+                            // Si no encontramos por longitud, buscar por nombre de columna
                             if (!address) {
                                 address = row.Owner || row.Address || row.Wallet || '';
                             }
                             
+                            // Obtener balance y porcentaje
                             balance = row.Quantity || row.Amount || row.Balance || 0;
                             percentage = row.Percentage || row.Percent || 0;
                             
+                            // Limpiar porcentaje si viene con %
                             if (typeof percentage === 'string') {
                                 percentage = parseFloat(percentage.replace('%', ''));
                             }
@@ -422,6 +418,7 @@ class HolderScraper {
                             }
                         });
                         
+                        // Mostrar info de los primeros holders
                         if (holders.length > 0) {
                             this.logger.info('🏆 Top 5 holders del CSV:');
                             holders.slice(0, 5).forEach((h, i) => {
@@ -461,7 +458,7 @@ class HolderScraper {
     }
 
     async cleanup() {
-        if (this.browser && process.env.NODE_ENV !== 'production') {
+        if (this.browser) {
             await this.browser.close();
             this.logger.debug('🧹 Browser cerrado');
         }
@@ -474,8 +471,7 @@ class HolderScraper {
             errors: this.errorCount,
             successRate: this.scrapeCount > 0 
                 ? ((this.scrapeCount / (this.scrapeCount + this.errorCount)) * 100).toFixed(2) + '%'
-                : '0%',
-            mode: process.env.NODE_ENV === 'production' ? 'Production' : 'Development'
+                : '0%'
         };
     }
 }
