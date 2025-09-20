@@ -153,8 +153,9 @@ const webshareProxies = [
   '104.252.20.129:6061',
   '82.29.210.68:7911'
 ];
+
         
-        // Seleccionar proxy aleatorio
+       // Seleccionar proxy aleatorio
         const randomProxy = webshareProxies[Math.floor(Math.random() * webshareProxies.length)];
         args.push(`--proxy-server=${randomProxy}`);
         this.logger.info(`🌐 Usando Webshare proxy: ${randomProxy}`);
@@ -166,7 +167,11 @@ const webshareProxies = [
             headless: this.config.headless,
             args: args,
             defaultViewport: null,
-            ignoreHTTPSErrors: true
+            ignoreHTTPSErrors: true,
+            // AGREGAR ESTO PARA RENDER:
+            executablePath: process.env.NODE_ENV === 'production' 
+                ? '/usr/bin/chromium-browser' 
+                : undefined
         });
         
         this.logger.debug('🌐 Browser iniciado con proxy rotativo');
