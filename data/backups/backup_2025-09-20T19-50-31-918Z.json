@@ -5,8 +5,8 @@
       "balance": 994370021.419082,
       "percentage": 99.44,
       "rank": 1,
-      "addedAt": "2025-09-20T20:11:38.032Z",
-      "lastSeen": "2025-09-20T20:11:38.032Z",
+      "addedAt": "2025-09-20T19:50:31.916Z",
+      "lastSeen": "2025-09-20T19:50:31.916Z",
       "updateCount": 1
     },
     {
@@ -14,8 +14,8 @@
       "balance": 3159291.465436,
       "percentage": 0.32,
       "rank": 2,
-      "addedAt": "2025-09-20T20:11:38.032Z",
-      "lastSeen": "2025-09-20T20:11:38.032Z",
+      "addedAt": "2025-09-20T19:50:31.916Z",
+      "lastSeen": "2025-09-20T19:50:31.916Z",
       "updateCount": 1
     },
     {
@@ -23,8 +23,8 @@
       "balance": 1513226.305434,
       "percentage": 0.15,
       "rank": 3,
-      "addedAt": "2025-09-20T20:11:38.032Z",
-      "lastSeen": "2025-09-20T20:11:38.032Z",
+      "addedAt": "2025-09-20T19:50:31.916Z",
+      "lastSeen": "2025-09-20T19:50:31.916Z",
       "updateCount": 1
     },
     {
@@ -32,22 +32,29 @@
       "balance": 957460.810048,
       "percentage": 0.1,
       "rank": 4,
-      "addedAt": "2025-09-20T20:11:38.032Z",
-      "lastSeen": "2025-09-20T20:11:38.032Z",
+      "addedAt": "2025-09-20T19:50:31.916Z",
+      "lastSeen": "2025-09-20T19:50:31.916Z",
       "updateCount": 1
     }
   ],
   "currentWallet": {
-    "address": "FnhuRLg5iaeFSfSsfiw4C771q8Hqbc2x34aJVi4jrRJW",
-    "balance": 994370021.419082,
-    "percentage": 99.44,
-    "rank": 1,
-    "addedAt": "2025-09-20T19:35:57.046Z",
-    "lastSeen": "2025-09-20T19:35:57.046Z",
+    "address": "86AzjkxsN9vpU93Abz6jU3XKX5yfxxU8Wj6QckULTatt",
+    "balance": 3159291.465436,
+    "percentage": 0.32,
+    "rank": 2,
+    "addedAt": "2025-09-20T19:50:31.916Z",
+    "lastSeen": "2025-09-20T19:50:31.916Z",
     "updateCount": 1,
-    "selectedAt": "2025-09-20T19:44:05.860Z"
+    "selectedAt": "2025-09-20T19:50:31.917Z"
   },
   "history": [
+    {
+      "address": "86AzjkxsN9vpU93Abz6jU3XKX5yfxxU8Wj6QckULTatt",
+      "balance": 3159291.465436,
+      "percentage": 0.32,
+      "rank": 2,
+      "timestamp": "2025-09-20T19:50:31.917Z"
+    },
     {
       "address": "FnhuRLg5iaeFSfSsfiw4C771q8Hqbc2x34aJVi4jrRJW",
       "balance": 994370021.419082,
@@ -176,9 +183,9 @@
     }
   ],
   "stats": {
-    "totalRaces": 18,
+    "totalRaces": 19,
     "totalWalletsProcessed": 4,
-    "lastUpdate": "2025-09-20T20:11:38.032Z",
+    "lastUpdate": "2025-09-20T19:50:31.916Z",
     "createdAt": "2025-09-20T18:07:03.946Z"
   },
   "metadata": {

@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-        "dev": "nodemon --ignore data/ --ignore downloads/ src/index.js",
+    "dev": "nodemon --ignore data/ --ignore downloads/ src/index.js",
     "setup": "npm install && node src/setup.js",
     "test": "node src/test.js",
     "pm2:start": "pm2 start ecosystem.config.js",
