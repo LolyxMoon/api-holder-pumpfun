@@ -169,9 +169,9 @@ const webshareProxies = [
             defaultViewport: null,
             ignoreHTTPSErrors: true,
             // AGREGAR ESTO PARA RENDER:
-            executablePath: process.env.NODE_ENV === 'production' 
-                ? '/usr/bin/chromium-browser' 
-                : undefined
+executablePath: process.env.NODE_ENV === 'production' 
+    ? '/opt/render/project/.cache/puppeteer/chrome/linux-*/chrome-linux/chrome'
+    : undefined
         });
         
         this.logger.debug('🌐 Browser iniciado con proxy rotativo');
