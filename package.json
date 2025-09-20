@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
+    "postinstall": "node node_modules/puppeteer/install.mjs",
     "dev": "nodemon --ignore data/ --ignore downloads/ src/index.js",
     "setup": "npm install && node src/setup.js",
     "test": "node src/test.js",
@@ -12,7 +13,9 @@
     "pm2:stop": "pm2 stop pumpfun-holders",
     "pm2:logs": "pm2 logs pumpfun-holders",
     "pm2:restart": "pm2 restart pumpfun-holders"
+    
   },
+  
   "keywords": [
     "solana",
     "pump.fun",

@@ -163,15 +163,20 @@ const webshareProxies = [
         // Guardar el proxy usado para autenticación posterior
         this.currentProxy = randomProxy;
         
+        // Determinar la ruta del ejecutable
+        let execPath;
+        if (process.env.NODE_ENV === 'production') {
+            // En Render, usar la ruta de Puppeteer
+            execPath = puppeteer.executablePath();
+            this.logger.info(`📍 Usando Chrome en: ${execPath}`);
+        }
+        
         this.browser = await puppeteer.launch({
             headless: this.config.headless,
             args: args,
             defaultViewport: null,
             ignoreHTTPSErrors: true,
-            // AGREGAR ESTO PARA RENDER:
-executablePath: process.env.NODE_ENV === 'production' 
-    ? '/opt/render/project/.cache/puppeteer/chrome/linux-*/chrome-linux/chrome'
-    : undefined
+            executablePath: execPath
         });
         
         this.logger.debug('🌐 Browser iniciado con proxy rotativo');
