@@ -38,72 +38,16 @@
     }
   ],
   "currentWallet": {
-    "address": "HD8o8ksbLh6y7giuMehQXsmvc8qBRRnyPH7hY5826Lo1",
-    "balance": 957460.810048,
-    "percentage": 0.1,
-    "rank": 4,
+    "address": "86AzjkxsN9vpU93Abz6jU3XKX5yfxxU8Wj6QckULTatt",
+    "balance": 3159291.465436,
+    "percentage": 0.32,
+    "rank": 2,
     "addedAt": "2025-09-20T20:56:55.689Z",
     "lastSeen": "2025-09-20T20:56:55.689Z",
     "updateCount": 1,
-    "selectedAt": "2025-09-20T21:00:53.956Z"
+    "selectedAt": "2025-09-20T20:56:55.690Z"
   },
   "history": [
-    {
-      "address": "HD8o8ksbLh6y7giuMehQXsmvc8qBRRnyPH7hY5826Lo1",
-      "balance": 957460.810048,
-      "percentage": 0.1,
-      "rank": 4,
-      "timestamp": "2025-09-20T21:00:53.956Z"
-    },
-    {
-      "address": "FnhuRLg5iaeFSfSsfiw4C771q8Hqbc2x34aJVi4jrRJW",
-      "balance": 994370021.419082,
-      "percentage": 99.44,
-      "rank": 1,
-      "timestamp": "2025-09-20T21:00:23.951Z"
-    },
-    {
-      "address": "86AzjkxsN9vpU93Abz6jU3XKX5yfxxU8Wj6QckULTatt",
-      "balance": 3159291.465436,
-      "percentage": 0.32,
-      "rank": 2,
-      "timestamp": "2025-09-20T20:59:53.940Z"
-    },
-    {
-      "address": "86AzjkxsN9vpU93Abz6jU3XKX5yfxxU8Wj6QckULTatt",
-      "balance": 3159291.465436,
-      "percentage": 0.32,
-      "rank": 2,
-      "timestamp": "2025-09-20T20:59:23.936Z"
-    },
-    {
-      "address": "FnhuRLg5iaeFSfSsfiw4C771q8Hqbc2x34aJVi4jrRJW",
-      "balance": 994370021.419082,
-      "percentage": 99.44,
-      "rank": 1,
-      "timestamp": "2025-09-20T20:58:53.933Z"
-    },
-    {
-      "address": "FnhuRLg5iaeFSfSsfiw4C771q8Hqbc2x34aJVi4jrRJW",
-      "balance": 994370021.419082,
-      "percentage": 99.44,
-      "rank": 1,
-      "timestamp": "2025-09-20T20:58:23.925Z"
-    },
-    {
-      "address": "6VLUycrXDMM6iuR652hELd365tJEUjzdGMVbyoXy9EEz",
-      "balance": 1513226.305434,
-      "percentage": 0.15,
-      "rank": 3,
-      "timestamp": "2025-09-20T20:57:53.913Z"
-    },
-    {
-      "address": "HD8o8ksbLh6y7giuMehQXsmvc8qBRRnyPH7hY5826Lo1",
-      "balance": 957460.810048,
-      "percentage": 0.1,
-      "rank": 4,
-      "timestamp": "2025-09-20T20:57:23.904Z"
-    },
     {
       "address": "86AzjkxsN9vpU93Abz6jU3XKX5yfxxU8Wj6QckULTatt",
       "balance": 3159291.465436,
@@ -246,7 +190,7 @@
     }
   ],
   "stats": {
-    "totalRaces": 28,
+    "totalRaces": 20,
     "totalWalletsProcessed": 4,
     "lastUpdate": "2025-09-20T20:56:55.689Z",
     "createdAt": "2025-09-20T18:07:03.946Z"
