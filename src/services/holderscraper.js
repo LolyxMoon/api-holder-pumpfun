@@ -37,30 +37,34 @@ class HolderScraper {
         }
     }
 
-    async launchBrowser() {
-        try {
-            this.browser = await puppeteer.launch({
-                headless: 'new', // Importante: usar 'new' para Render
-                args: [
-                    '--no-sandbox',
-                    '--disable-setuid-sandbox',
-                    '--disable-dev-shm-usage',
-                    '--disable-gpu',
-                    '--no-first-run',
-                    '--no-zygote',
-                    '--single-process',
-                    '--disable-extensions',
-                    '--disable-blink-features=AutomationControlled'
-                ],
-                defaultViewport: null
-            });
-            
-            this.logger.debug('🌐 Browser iniciado para descarga automática');
-        } catch (error) {
-            this.logger.error('Error iniciando browser:', error);
-            throw error;
-        }
+async launchBrowser() {
+    try {
+        this.browser = await puppeteer.launch({
+            headless: 'new',
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--no-first-run',
+                '--no-zygote',
+                '--disable-extensions',
+                '--disable-blink-features=AutomationControlled',
+                '--disable-web-security',
+                '--disable-features=IsolateOrigins',
+                '--disable-site-isolation-trials'
+            ],
+            defaultViewport: null,
+            ignoreHTTPSErrors: true,
+            dumpio: true // Para ver más logs
+        });
+        
+        this.logger.debug('🌐 Browser iniciado para descarga automática');
+    } catch (error) {
+        this.logger.error('Error iniciando browser:', error);
+        throw error;
     }
+}
 
     async scrapeHolders() {
         // QUITAR todas las verificaciones de producción
