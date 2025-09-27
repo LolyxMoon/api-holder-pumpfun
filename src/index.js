@@ -15,17 +15,26 @@ const { validateToken, formatWallet } = require('./utils/helpers');
 class PumpFunHoldersAPI {
     constructor() {
         this.app = express();
-        this.app.use((req, res, next) => {
-    res.removeHeader('Content-Security-Policy');
-    res.setHeader('X-Content-Security-Policy', 'unsafe-inline');
-    next();
-});
         this.port = process.env.PORT || 3001;
         this.database = new Database();
         this.scraper = new HolderScraper(this.database);
         this.logger = new Logger();
         this.isRunning = false;
         this.rotationInterval = null;
+        
+        // Inicializar array de ganadores si no existe
+        this.initializeWinnersData();
+    }
+    
+    // Inicializar estructura de datos para ganadores
+    initializeWinnersData() {
+        if (!this.database.data) {
+            this.database.data = {};
+        }
+        if (!this.database.data.winners) {
+            this.database.data.winners = [];
+            this.logger.info('✅ Estructura de ganadores inicializada');
+        }
     }
 
     async initialize() {
@@ -77,53 +86,35 @@ class PumpFunHoldersAPI {
         this.logger.info('✅ Configuración validada');
     }
 
-    setupExpress() {
-        // Middlewares de seguridad y optimización
-        this.app.use(helmet());
-        this.app.use(compression());
-this.app.use(cors({
-    origin: '*', // Permitir todos por ahora
-    credentials: true
-}));
-        this.app.use(express.json());
-        this.app.use(express.static(path.join(__dirname, '../public')));
-        
-        // Middleware de logging
-        this.app.use((req, res, next) => {
-            this.logger.debug(`${req.method} ${req.path}`);
-            next();
-        });
-        
-        // Rate limiting simple
-        if (process.env.ENABLE_RATE_LIMIT === 'true') {
-            const rateLimit = new Map();
-            this.app.use((req, res, next) => {
-                const ip = req.ip;
-                const now = Date.now();
-                const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000;
-                const maxRequests = parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100;
-                
-                if (!rateLimit.has(ip)) {
-                    rateLimit.set(ip, { count: 1, resetTime: now + windowMs });
-                } else {
-                    const limit = rateLimit.get(ip);
-                    if (now > limit.resetTime) {
-                        limit.count = 1;
-                        limit.resetTime = now + windowMs;
-                    } else {
-                        limit.count++;
-                        if (limit.count > maxRequests) {
-                            return res.status(429).json({
-                                success: false,
-                                error: 'Too many requests'
-                            });
-                        }
-                    }
-                }
-                next();
-            });
-        }
-    }
+  setupExpress() {
+    // CORS - Permitir cualquier origen para desarrollo
+    this.app.use(cors({
+        origin: true,  // Permite TODOS los orígenes
+        credentials: true,
+        methods: ['GET', 'POST', 'OPTIONS', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'ngrok-skip-browser-warning', 'Authorization']
+    }));
+    
+    // Luego seguridad y optimización
+    this.app.use(compression());
+    
+    // Helmet con configuración personalizada para evitar conflictos
+    this.app.use(helmet({
+        contentSecurityPolicy: false,
+        crossOriginEmbedderPolicy: false
+    }));
+    
+    // Remover headers problemáticos
+    this.app.use((req, res, next) => {
+        res.removeHeader('Content-Security-Policy');
+        res.setHeader('X-Content-Security-Policy', 'unsafe-inline');
+        next();
+    });
+    
+    // Body parser
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
+}
 
     setupRoutes() {
         // Health check
@@ -149,7 +140,16 @@ this.app.use(cors({
                     history: '/api/history',
                     rotate: '/api/rotate-wallet',
                     update: '/api/force-update',
-                    topHolders: '/api/top-holders/:count'
+                    topHolders: '/api/top-holders/:count',
+                    holders: '/api/holders',
+                    winners: {
+                        list: '/winners',
+                        register: '/api/race-winner',
+                        stats: '/api/winners/stats',
+                        byWallet: '/api/winners/wallet/:address',
+                        byRace: '/api/winners/race/:raceId',
+                        cleanup: '/api/winners/cleanup'
+                    }
                 }
             });
         });
@@ -207,7 +207,6 @@ this.app.use(cors({
                 }))
             });
         });
-
         // Top holders
         this.app.get('/api/top-holders/:count?', (req, res) => {
             const count = parseInt(req.params.count) || 10;
@@ -241,6 +240,20 @@ this.app.use(cors({
             const avgBalance = wallets.length > 0 ? totalBalance / wallets.length : 0;
             const whaleCount = wallets.filter(w => w.percentage > 1).length;
             
+            // Estadísticas de ganadores
+            const winners = this.database.data.winners || [];
+            const winnersStats = {
+                totalWinners: winners.length,
+                totalPrizesPaid: winners.filter(w => w.paymentStatus === 'completed').length,
+                totalPrizesAmount: winners.reduce((sum, w) => 
+                    w.paymentStatus === 'completed' ? sum + (w.prizeAmount || 0) : sum, 0
+                ),
+                lastWinner: winners[0] ? {
+                    wallet: winners[0].walletAddress.substring(0, 8) + '...',
+                    timestamp: winners[0].timestamp
+                } : null
+            };
+            
             res.json({
                 success: true,
                 data: {
@@ -252,9 +265,26 @@ this.app.use(cors({
                     lastScrape: this.scraper.lastScrapeTime,
                     nextUpdate: this.getNextUpdateTime(),
                     isRunning: this.isRunning,
-                    uptime: process.uptime()
+                    uptime: process.uptime(),
+                    winners: winnersStats
                 }
             });
+        });
+        
+        // Endpoint para holders
+        this.app.get('/api/holders', async (req, res) => {
+            try {
+                const holders = this.database.getAllWallets();
+                res.json({
+                    success: true,
+                    data: holders
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    error: error.message
+                });
+            }
         });
 
         // Historial
@@ -312,6 +342,225 @@ this.app.use(cors({
                 });
             } catch (error) {
                 this.logger.error('Error en actualización forzada:', error);
+                res.status(500).json({
+                    success: false,
+                    error: error.message
+                });
+            }
+        });
+
+        // ============= ENDPOINTS DE GANADORES =============
+        
+        // Endpoint para recibir ganadores desde el juego (ya con transacción pagada)
+        this.app.post('/api/race-winner', async (req, res) => {
+            try {
+                const { 
+                    raceId,
+                    walletAddress, 
+                    horseNumber, 
+                    horseId,
+                    raceTime,
+                    prizeAmount,
+                    paymentTxHash,
+                    paymentStatus,
+                    timestamp
+                } = req.body;
+                
+                if (!walletAddress) {
+                    return res.status(400).json({
+                        success: false,
+                        error: 'walletAddress es requerido'
+                    });
+                }
+                
+                // Guardar el ganador en la base de datos
+                if (!this.database.data.winners) {
+                    this.database.data.winners = [];
+                }
+                
+                const winner = {
+                    raceId: raceId || Date.now(),
+                    walletAddress,
+                    horseNumber: horseNumber || 'Unknown',
+                    horseId,
+                    raceTime,
+                    prizeAmount: prizeAmount || 0.005,
+                    paymentTxHash,  // ESTE ES EL HASH DE LA TRANSACCIÓN
+                    paymentStatus: paymentStatus || 'completed',
+                    timestamp: timestamp || new Date().toISOString(),
+                    solscanUrl: paymentTxHash ? `https://solscan.io/tx/${paymentTxHash}` : null
+                };
+                
+                // Agregar al principio del array
+                this.database.data.winners.unshift(winner);
+                
+                // Mantener solo los últimos 100 ganadores
+                if (this.database.data.winners.length > 100) {
+                    this.database.data.winners = this.database.data.winners.slice(0, 100);
+                }
+                
+                // Actualizar estadísticas
+                this.database.data.stats.totalRaces = (this.database.data.stats.totalRaces || 0) + 1;
+                
+                // Guardar cambios
+                await this.database.save();
+                
+                this.logger.info(`🏆 Nuevo ganador registrado: ${walletAddress.substring(0, 8)}...`);
+                if (paymentTxHash) {
+                    this.logger.info(`💰 Transacción: ${paymentTxHash}`);
+                }
+                
+                res.json({
+                    success: true,
+                    data: winner,
+                    message: 'Ganador registrado exitosamente'
+                });
+                
+            } catch (error) {
+                this.logger.error('Error registrando ganador:', error);
+                res.status(500).json({
+                    success: false,
+                    error: error.message
+                });
+            }
+        });
+
+        // Endpoint para obtener ganadores (para el dashboard)
+        this.app.get('/winners', async (req, res) => {
+            try {
+                const { limit = 20 } = req.query;
+                const winners = this.database.data.winners || [];
+                
+                res.json({
+                    success: true,
+                    count: winners.length,
+                    data: winners.slice(0, parseInt(limit)).map(w => ({
+                        raceId: w.raceId,
+                        walletAddress: w.walletAddress,
+                        horseNumber: w.horseNumber,
+                        horseId: w.horseId,
+                        prizeAmount: w.prizeAmount,
+                        timestamp: w.timestamp,
+                        raceTime: w.raceTime,
+                        paymentStatus: w.paymentStatus,
+                        paymentTxHash: w.paymentTxHash,
+                        transactionHash: w.paymentTxHash, // Alias para compatibilidad con el dashboard
+                        solscanUrl: w.solscanUrl
+                    }))
+                });
+            } catch (error) {
+                this.logger.error('Error obteniendo ganadores:', error);
+                res.status(500).json({
+                    success: false,
+                    error: error.message
+                });
+            }
+        });
+
+        // Endpoint para buscar ganadores por wallet
+        this.app.get('/api/winners/wallet/:address', async (req, res) => {
+            try {
+                const { address } = req.params;
+                const winners = (this.database.data.winners || []).filter(w => 
+                    w.walletAddress.toLowerCase() === address.toLowerCase()
+                );
+                
+                const totalEarnings = winners.reduce((sum, w) => sum + (w.prizeAmount || 0), 0);
+                
+                res.json({
+                    success: true,
+                    wallet: address,
+                    totalWins: winners.length,
+                    totalEarnings,
+                    data: winners
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    error: error.message
+                });
+            }
+        });
+
+        // Endpoint para estadísticas de ganadores
+        this.app.get('/api/winners/stats', async (req, res) => {
+            try {
+                const winners = this.database.data.winners || [];
+                
+                const stats = {
+                    totalWinners: winners.length,
+                    totalPrizesPaid: winners.filter(w => w.paymentStatus === 'completed').length,
+                    totalPrizesAmount: winners.reduce((sum, w) => 
+                        w.paymentStatus === 'completed' ? sum + (w.prizeAmount || 0) : sum, 0
+                    ),
+                    pendingPayments: winners.filter(w => 
+                        w.paymentStatus === 'pending' || w.paymentStatus === 'pending_funds'
+                    ).length,
+                    lastWinner: winners[0] || null,
+                    recentWinners: winners.slice(0, 5).map(w => ({
+                        wallet: w.walletAddress.substring(0, 8) + '...',
+                        amount: w.prizeAmount,
+                        time: w.timestamp
+                    }))
+                };
+                
+                res.json({
+                    success: true,
+                    data: stats
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    error: error.message
+                });
+            }
+        });
+        // Endpoint para obtener un ganador específico por raceId
+        this.app.get('/api/winners/race/:raceId', async (req, res) => {
+            try {
+                const { raceId } = req.params;
+                const winner = (this.database.data.winners || []).find(w => 
+                    w.raceId == raceId
+                );
+                
+                if (!winner) {
+                    return res.status(404).json({
+                        success: false,
+                        error: 'Ganador no encontrado'
+                    });
+                }
+                
+                res.json({
+                    success: true,
+                    data: winner
+                });
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    error: error.message
+                });
+            }
+        });
+
+        // Endpoint para limpiar ganadores antiguos
+        this.app.delete('/api/winners/cleanup', async (req, res) => {
+            try {
+                const { keep = 50 } = req.query;
+                const originalCount = this.database.data.winners?.length || 0;
+                
+                if (this.database.data.winners) {
+                    this.database.data.winners = this.database.data.winners.slice(0, parseInt(keep));
+                    await this.database.save();
+                }
+                
+                const removedCount = originalCount - (this.database.data.winners?.length || 0);
+                
+                res.json({
+                    success: true,
+                    message: `Limpieza completada. ${removedCount} registros eliminados.`,
+                    remaining: this.database.data.winners?.length || 0
+                });
+            } catch (error) {
                 res.status(500).json({
                     success: false,
                     error: error.message
@@ -393,15 +642,15 @@ this.app.use(cors({
 
     startServer() {
         this.app.listen(this.port, () => {
-            this.logger.info(`🌐 Servidor API corriendo en http://localhost:${this.port}`);
+            this.logger.info(`🌍 Servidor API corriendo en http://localhost:${this.port}`);
             this.logger.info(`📊 Dashboard disponible en http://localhost:${this.port}`);
             console.log(`
-╔══════════════════════════════════════════╗
+╔═════════════════════════════════════════╗
 ║   PumpFun Holders API - v1.0.0          ║
 ║   Token: ${process.env.TOKEN_NAME || 'Unknown'}                        ║
 ║   API: http://localhost:${this.port}/api      ║
 ║   Dashboard: http://localhost:${this.port}       ║
-╚══════════════════════════════════════════╝
+╚═════════════════════════════════════════╝
             `);
         });
     }

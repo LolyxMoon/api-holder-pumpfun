@@ -6,11 +6,12 @@
     "totalRaces": 0,
     "totalWalletsProcessed": 0,
     "lastUpdate": null,
-    "createdAt": "2025-09-20T18:07:03.946Z"
+    "createdAt": "2025-09-27T07:05:20.872Z"
   },
   "metadata": {
-    "tokenAddress": "CtUhF7Hvq8uTBjnpEkVUFgoTVEtFJXcrSfqYA5GYpump",
+    "tokenAddress": "2nzzHWMXD8ismXTcooiW6eML2euKvEZ7T8CPajLXpump",
     "tokenName": "Tu-Token",
     "version": "1.0.0"
-  }
+  },
+  "winners": []
 }

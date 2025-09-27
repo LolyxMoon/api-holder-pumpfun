@@ -21,12 +21,12 @@ class HolderScraper {
         // Usar /tmp en servidor o Downloads en local
         const userHome = process.env.HOME || process.env.USERPROFILE || '/tmp';
         
-    this.config = {
+this.config = {
     tokenAddress: process.env.TOKEN_ADDRESS,
-    downloadPath: process.env.NODE_ENV === 'production' ? '/tmp' : path.join(userHome, 'Downloads'),
+    downloadPath: 'C:\\Users\\Administrator\\Downloads', // Ruta Windows
     maxRetries: parseInt(process.env.MAX_RETRIES) || 3,
     timeout: parseInt(process.env.TIMEOUT_MS) || 60000,
-    headless: process.env.HEADLESS_MODE === 'true' // CAMBIAR A ===
+    headless: true // Cambiar a false para ver qué pasa
 };
     }
 
@@ -186,20 +186,20 @@ const webshareProxies = [
     }
 }
 
-    async scrapeHolders() {
-        // Verificar cooldown de 5 minutos
-        const now = Date.now();
-       const fiveMinutes = 5 * 60 * 1000;
+async scrapeHolders() {
+    // Verificar cooldown de 1 minuto
+    const now = Date.now();
+    const oneMinute = 1 * 60 * 1000;  // Cambiado de 5 a 1
+    
+    if (this.lastScrapeTime) {
+        const timeSinceLastScrape = now - new Date(this.lastScrapeTime).getTime();
         
-        if (this.lastScrapeTime) {
-            const timeSinceLastScrape = now - new Date(this.lastScrapeTime).getTime();
-            
-            if (timeSinceLastScrape < eightMinutes) {
-                const waitTime = Math.ceil((eightMinutes - timeSinceLastScrape) / 1000);
-                this.logger.info(`⏳ Esperando ${waitTime} segundos antes de la próxima descarga`);
-                return this.database.getAllWallets ? this.database.getAllWallets() : [];
-            }
+        if (timeSinceLastScrape < oneMinute) {  // Cambiado de fiveMinutes a oneMinute
+            const waitTime = Math.ceil((oneMinute - timeSinceLastScrape) / 1000);  // Cambiado aquí también
+            this.logger.info(`⏳ Esperando ${waitTime} segundos antes de la próxima descarga`);
+            return this.database.getAllWallets ? this.database.getAllWallets() : [];
         }
+    }
         
         let holders = [];
         let lastError = null;
